@@ -1,0 +1,64 @@
+/* -----------------------------------------
+   Custom.css - put your own changes here 
+----------------------------------------- */
+.post-container {
+  padding: 10px;
+}
+.tweet-text {
+  text-align: left;
+}
+.tweetPost-thumb img {
+  width: 100%;
+  top: -0px;
+  border-radius: 2%;
+  border: 1px solid transparent;
+}
+.tweet-action {
+  padding-top: 10px;
+  display: inline-flex;
+}
+.tweet-action span {
+  margin-right: 10px;
+}
+.tweet-action .reach {
+  top: 0px;
+  margin-right: 20px;
+  width: 100px;
+}
+.tweet-action .reach span{
+  font-size: 12px;
+}
+.tweet-action .amplified{
+  top: 0px;
+  margin-right: 20px;
+  width: 250px;
+}
+.tweet-box {
+	position: relative;
+	padding: 10px;
+}
+.tweet-box img {
+	position: absolute;
+	width: 48px;
+	height: 48px;
+	top: -0px;
+}
+.tweet-box textarea {
+	margin-left: 56px;
+	width: inherit;
+	resize: none;
+	overflow: auto;
+	position: relative;
+	border: 1px solid #D0D0D0;
+	-webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+           box-sizing: border-box;
+}
+.media-button input {
+	display: block;
+	width: 200px;
+	background-color: transparent;
+	overflow: hidden;
+	margin-top: 10px;
+	margin-left: 56px;
+}

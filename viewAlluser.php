@@ -1,0 +1,154 @@
+<?php
+/**
+*	THIS FILE IS FOR ADMIN LOGIN LOGOUT	5/4/2014                                    
+**/
+$fileBasePath = dirname(__FILE__).'/';                                              
+include_once('include/header.php');                             
+/*
+*	Redirect Admin To Home Page
+*	If Already Logged In
+*/
+if(!isset($_SESSION['user_info'])){                              
+	header('Location: logout');
+}
+if($_SESSION['user_info']['manage_group']!=1){
+	header('location:dashboard');
+}
+   
+   $allUsers =array();
+   if(isset($_GET['TYPE']) && isset($_GET['id']) && !empty($_GET['id']) && !empty($_GET['TYPE']))
+   {
+	    if($_GET['TYPE']=='GROUP')
+		{
+			$groupuser=new groupuser();
+			$allUsers =$groupuser->findgroupuser($_GET['id']);
+		}
+		else{
+			$tweetuser=new Tweetuser();
+			$allUsers =$tweetuser->gettweetuser($_GET['id']);
+		}
+   }
+include('include/head.php');
+include('include/sidebar.php');
+?>
+<div id="content" class="page-content clearfix">
+<div class="contentwrapper">
+   <aside class="right-side">
+				<?php
+				if(isset($_SESSION['msgsuccess'])){                                    
+				?>
+					<div class="alert alert-success alert-dismissable">                      
+						<i class="fa fa-check"></i>
+						<button aria-hidden="true" data-dismiss="alert" class="close" type="button">x</button>
+						<b>Alert!</b> <?php echo $_SESSION['msgsuccess']; ?>.                      
+					</div>                    
+				<?php
+					unset($_SESSION['msgsuccess']);                     
+				}
+
+		?>
+			  <div class="heading">	
+				<h3>Manage User</h3>
+				<div class="resBtnSearch">
+					<a href="#"><span class="s16 icomoon-icon-search-3"></span></a>
+				</div>
+				
+				<ul class="breadcrumb">
+					<li>You are here:</li>
+					<li>
+					<a href="viewAlluser.php?TYPE=<?PHP ECHO $_GET['TYPE'] ; ?>&id=<?php echo $_GET['id'] ?>"><i class="fa fa-dashboard"></i> View All Member</a>
+						
+						
+					</li>
+					
+				</ul>
+			</div>
+
+                <!-- Main content -->
+                <section class="content">
+                    <div class="row">
+                        <!-- left column -->
+                        <div class="col-md-12">
+                            <!-- general form elements -->
+                            <div class="box box-primary">
+                                <div class="box-header">
+                                </div><!-- /.box-header -->
+                                <!-- form start -->
+                                    <div class="box-body">
+										<table class="table table-bordered" id="alldata">
+                                        <thead><tr>
+                                            <th style="width: 10px">#</th>
+                                             <th>Name</th>
+                                            <th>Email</th>
+											<th>Tweet</th>
+											<th>Following</th>
+											<th>Follower</th>
+											<?php  if($_GET['TYPE']=='GROUP'){ ?>
+											<th>Point</th>
+											<?php } ?>
+												
+	
+											<th>Favourite</th>
+                                            <th>Action</th>
+                                        </tr>
+										</thead>
+										<tbody>
+					<?php
+					$total=0;
+					$i=0;
+					foreach($allUsers as $k=>$userData){						
+						$total+=$userData['friendcount'];
+					
+							if($userData['type']==1) continue; elseif($userData['type']==2) $type='dummy' ; else $type='Original' ?>
+
+						<tr>
+							<td><?php $i++; echo $i; ?></td>
+						<td><a href="javascript:;" onclick="showpopup('<?php echo $userData['id']; ?>')"><?php echo $userData['firstname'] ?></a></td>
+							
+							<td><?php echo $userData['email']; ?></td>
+							<td><?php echo $userData['tweetcount']; ?></td> 
+							<td><?php echo $userData['friendcount']; ?></td> 
+							<td><?php echo $userData['follower']; ?></td>
+							
+							<?php if($_GET['TYPE']=='GROUP'){?>
+											<td><?php echo $userData['point']; ?></td>
+							<?php } ?>
+							
+							<td><?php echo $userData['favourite']; ?></td> 
+							<td>
+								<a title="Delete" class="btn btn-danger" onclick="return confirm('Are you sure?');" href="<?php echo $config['SITE_URL']."userlist.php?delete=1&userId=".$userData['id'];?>"><i class="icomoon-icon-remove-4" aria-hidden="true"></i></a>
+							</td>                                                                                                  
+						</tr>                                                                                
+						<?php
+						
+					}
+					?>
+                                    </tbody>
+									</table>
+                                    </div><!-- /.box-body -->
+                            </div><!-- /.box -->
+                    </div>   <!-- /.row -->
+                </section><!-- /.content -->
+            </aside><!-- /.right-side -->
+</div>
+</div>
+<?php
+include_once('include/footer.php');
+?>
+<script type="text/javascript">
+            $(function() {
+                $('#alldata').dataTable({
+					   "iDisplayLength": 2000,
+                    "bPaginate": true,
+                    "bLengthChange": false,
+                   // "bFilter": false,
+                    "bSort": true,
+                    "bInfo": true,
+                    "bAutoWidth": false
+                });
+				
+            });
+        </script>
+<script>
+changenotificationstatus()
+</script>

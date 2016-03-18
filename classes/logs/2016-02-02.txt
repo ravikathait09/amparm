@@ -1,0 +1,15 @@
+Time : 07:45:55
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'amparm.setting' doesn't exist
+Raw SQL : SELECT * FROM setting order by id desc
+
+Time : 07:37:21
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'amparm.setting' doesn't exist
+Raw SQL : SELECT * FROM setting order by id desc
+
+Time : 07:36:53
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'amparm.setting' doesn't exist
+Raw SQL : SELECT * FROM setting order by id desc
+
+Time : 07:36:49
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'amparm.setting' doesn't exist
+Raw SQL : SELECT * FROM setting order by id desc

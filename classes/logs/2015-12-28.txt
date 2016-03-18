@@ -1,0 +1,11 @@
+Time : 13:22:58
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '0 = ?,manage_group = ? WHERE id= ?' at line 1
+Raw SQL : UPDATE users SET 0 = :0,manage_group = :manage_group WHERE id= :id
+
+Time : 13:20:59
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '0 = ?,manage_group = ? WHERE id= ?' at line 1
+Raw SQL : UPDATE users SET 0 = :0,manage_group = :manage_group WHERE id= :id
+
+Time : 06:30:02
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'group_notification=1' at line 1
+Raw SQL : SELECT count(userid) FROM groupuser WHERE groupid=5and group_notification=1

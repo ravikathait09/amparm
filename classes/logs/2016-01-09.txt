@@ -1,0 +1,15 @@
+Time : 15:11:33
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'tw ,tweetuser twu where twu.userid='6' and  twu.tweetid=tw.id and (tw.timestamp ' at line 1
+Raw SQL : select distinct (tw.id), tw.*, twu.status, twu.tweetreplyidfrom twiiter tw ,tweetuser twu where twu.userid='6' and  twu.tweetid=tw.id and (tw.timestamp >1452289293 and  tw.status=0) order by  tw.id desc limit 0 , 10
+
+Time : 15:10:23
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'tw ,tweetuser twu where twu.userid='6' and  twu.tweetid=tw.id and (tw.timestamp ' at line 1
+Raw SQL : select distinct (tw.id), tw.*, twu.status, twu.tweetreplyidfrom twiiter tw ,tweetuser twu where twu.userid='6' and  twu.tweetid=tw.id and (tw.timestamp >1452289223 and  tw.status=0) order by  tw.id desc limit 0 , 10
+
+Time : 15:10:19
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'tw ,tweetuser twu where twu.userid='6' and  twu.tweetid=tw.id and (tw.timestamp ' at line 1
+Raw SQL : select distinct (tw.id), tw.*, twu.status, twu.tweetreplyidfrom twiiter tw ,tweetuser twu where twu.userid='6' and  twu.tweetid=tw.id and (tw.timestamp >1452289219 and  tw.status=0) order by  tw.id desc limit 0 , 10
+
+Time : 15:09:34
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'tw ,tweetuser twu where twu.userid='6' and  twu.tweetid=tw.id and (tw.timestamp ' at line 1
+Raw SQL : select distinct (tw.id), tw.*, twu.status, twu.tweetreplyidfrom twiiter tw ,tweetuser twu where twu.userid='6' and  twu.tweetid=tw.id and (tw.timestamp >1452289174 and  tw.status=0) order by  tw.id desc limit 0 , 10
